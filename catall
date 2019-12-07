@@ -1,0 +1,24 @@
+
+( ls -a -p | grep -v /$ ) > .0
+
+while read lns
+do
+	if [ $lns == ".0" ]
+	then
+	echo -e "\e[33;1mFiles: "
+	echo -e "\e[32;1m"
+	cat $lns
+	echo
+	echo -e "\e[34;1m**************************************\e[m"
+	echo
+
+	else
+	cat $lns
+	echo
+	echo -e "\e[34;1m**************************************\e[m"
+	echo
+	
+	fi
+
+done < ".0"
+rm .0
